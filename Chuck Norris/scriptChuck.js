@@ -2,7 +2,7 @@ async function chuck(){
     try{
     let response = await fetch("https://api.chucknorris.io/jokes/random")
     let result = await response.json()
-    console.log(result.url)
+    console.log(result.value)
     }
     catch{
     (error) => alert("Erreur" + error)
