@@ -1,3 +1,6 @@
+//import { createClient } from 'pexels';
+//const client = createClient('563492ad6f91700001000001608e9238674748009498eea15e94bde2');
+
 async function meteo(){
     try{
         let response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=9dc1ac654e99ad5e689b88fde5a5fd33&units=metric") //key : d9eb38796032a8eb1c62b19c226720c8
@@ -63,28 +66,28 @@ async function photos(){
             //'Authorization' : '563492ad6f91700001000001608e9238674748009498eea15e94bde2'
         //}
     //}
-    
-    fetch("https://api.pexels.com/v1/", {
-    method: 'GET',
-    headers: {
-        'Authorization' : '563492ad6f91700001000001608e9238674748009498eea15e94bde2'
-    }
-    .then(resp => {
-        return resp.json()
-    })
-    .then(data => console.log(data))
 
-    //try{
-        //let resp = await fetch("https://api.pexels.com/v1/")
-        //let resultat = await resp.json()
-        //console.log(resultat)
+    //fetch("https://api.pexels.com/v1/", {
+   // method: 'GET',
+    //headers: {
+     //   'Authorization' : '563492ad6f91700001000001608e9238674748009498eea15e94bde2' //process.env(API_KEY)
     //}
+    //.then(resp => {
+      //  return resp.json()
+    //})
+    //.then(data => console.log(data))
 
-    .catch(error => alert("Erreur : " + error))
+    try{
+        let resp = await fetch("https://api.pexels.com/v1/")
+        let resultat = await resp.json()
+        console.log(resultat)
+    }
+
+    catch(error) {alert("Erreur : " + error)}
 
 }
-}
-console.log(photos)
+    
+console.log(client)
 
 
 
