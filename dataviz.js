@@ -9,6 +9,12 @@ async function meteo(){
         console.log(result.main.temp)
         //let weatherIcon = document.querySelector('#weather-img')
         //console.log(weatherIcon)
+        const city = result.name;
+        document.getElementById("ville").innerHTML = city;
+
+        const temp = result.main.temp;
+        document.getElementById("temperature").innerHTML = temp; 
+
         const icon = result.weather[0].icon
         document.getElementById("weather-img").setAttribute("src", "http://openweathermap.org/img/w/"+icon+".png")
         //console.log("http://openweathermap.org/img/w/"+icon+".png")

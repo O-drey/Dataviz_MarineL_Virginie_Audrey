@@ -6,14 +6,15 @@
 
 /*images*/
 .icons{
-
     height: 100%;
 }
+
 .folder p{
     margin: -5px;
     text-align: center;
     width: 5%;
 }
+
 .folder{
     padding: 15px 0px 0px 15px;
     margin-bottom: 22px;
@@ -21,22 +22,34 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    justify-items: center;*/
-    
-
+    justify-items: center;*/  
 }
+
 
 /*météo*/
-#weather-img{
-    margin : 10%;
+.meteo{
+   position: absolute;
+   /*justify-content: right;*/
+   /*display: flex;*/
+   top: 5px;
+   left: 1400px;
+   right: 0px;
+   bottom: 500px;
 }
+
+
+#temperature, #ville, #w-icon{
+    text-align: center;
+    justify-items: center;
+}
+
 
 
 /*footer*/
 .footer{
     position: fixed;
-    left: 0;
-    bottom: 0;
+    left: 0px;
+    bottom: 0px;
     width: 100%;
     height: 5%;
     background-color: rgb(119, 112, 112);
