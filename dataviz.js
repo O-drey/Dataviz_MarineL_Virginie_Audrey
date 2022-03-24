@@ -13,7 +13,7 @@ async function meteo(){
         document.getElementById("ville").innerHTML = city;
 
         const temp = result.main.temp;
-        document.getElementById("temperature").innerHTML = temp; 
+        document.getElementById("temperature").innerHTML = Math.round(temp) + "°C"; 
 
         const icon = result.weather[0].icon
         document.getElementById("weather-img").setAttribute("src", "http://openweathermap.org/img/w/"+icon+".png")
@@ -23,4 +23,44 @@ async function meteo(){
     }
 }
 
+
+//Pexelskey: 563492ad6f91700001000001608e9238674748009498eea15e94bde2//
+
+
+async function photos(){
+    //let data = {
+       // url : "https://api.pexels.com/v1/",
+       // headers: {
+            //'Authorization' : '563492ad6f91700001000001608e9238674748009498eea15e94bde2'
+        //}
+    //}
+    
+    fetch("https://api.pexels.com/v1/", {
+    method: 'GET',
+    headers: {
+        'Authorization' : '563492ad6f91700001000001608e9238674748009498eea15e94bde2'
+    }
+    .then(resp => {
+        return resp.json()
+    })
+    .then(data => console.log(data))
+
+    //try{
+        //let resp = await fetch("https://api.pexels.com/v1/")
+        //let resultat = await resp.json()
+        //console.log(resultat)
+    //}
+
+    .catch(error => alert("Erreur : " + error))
+
+}
+}
+console.log(photos)
+
+
+
+
+
+
 meteo()
+photos()

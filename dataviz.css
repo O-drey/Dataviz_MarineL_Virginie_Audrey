@@ -43,6 +43,10 @@
     justify-items: center;
 }
 
+#temperature{
+    margin-top: -15px;
+}
+
 
 
 /*footer*/
