@@ -25,24 +25,29 @@ async function meteo(){
     }
 }
 
-
 //Pexelskey: 563492ad6f91700001000001608e9238674748009498eea15e94bde2//
 
+chrome.runtime.onMessage.addListener(
 
 async function photo(){
- 
-    fetch("https://api.pexels.com/v1/search?query=people",{
+  
+    fetch("https://api.pexels.com/v1/search?query=weather",{
         headers: {
-          Authorization: "563492ad6f91700001000001608e9238674748009498eea15e94bde2"
+          AccessControlAllowOrigin : "https://api.pexels.com/v1/search?query=weather",
+          contentType:"image/png",
+          Authorization: "563492ad6f91700001000001608e9238674748009498eea15e94bde2",
         }
       })
          .then(resp => {
            return resp.json()
          })
          .then(data => {
-           console.log(data)
+           const url = data.photos.url
+           document.getElementById("background-img").setAttribute("src", "https://api.pexels.com/v1/search?query=weather" + url +".png")
+           console.log(data.photos)
          })
         }
+)
 
 
 meteo()
