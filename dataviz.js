@@ -16,9 +16,25 @@ async function meteo(){
         console.log(icon)
         document.getElementById("weather-img").setAttribute("src", "http://openweathermap.org/img/w/"+icon+".png")
         //console.log("http://openweathermap.org/img/w/"+icon+".png")
+
+        let array = {
+          "01d" : "ffff00",
+          "02d" : "ffff00",
+          "03d" : "d3d3d3",
+          "04d" : "696969",
+          "09d" : "4682b4",
+          "10d" : "4682b4",
+          "11d" : "191970",
+          "13d" : "fffafa",
+          "50d" : "f5f5f5"
+        }
+        
+        console.log(array[icon])
+
     }catch{
         (error => alert("Erreur : " + error))
     }
+    
 }
 
 //Pexelskey: 563492ad6f91700001000001608e9238674748009498eea15e94bde2//
@@ -26,7 +42,7 @@ async function meteo(){
 
 
 async function photo(){
-    fetch("https://api.pexels.com/v1/search?query=weather",{
+    fetch("https://api.pexels.com/v1/search?query=weather&color=d3d3d3",{
         headers: {
           Origin : "*", 
           'Content-Type':"image/jpeg",
@@ -37,24 +53,12 @@ async function photo(){
            return resp.json()
          })
          .then(data => {
-           const url = data.photos[0].src.landscape
+           const url = data.photos[1].src.landscape
            document.getElementById("background-img").setAttribute("src", url)
            console.log(data.photos)
          })
         }
 
-
-// //let array = [
-//   "01d" = "#FFFF00",
-//   "02d" = "#FFFF00",
-//   "03d" = "#D3D3D3",
-//   "04d" = "#696969",
-//   "09d" = "#4682B4",
-//   "10d" = "#4682B4",
-//   "11d" = "#191970",
-//   "13d" = "#FFFAFA",
-//   "50d" = "#F5F5F5"
-// ]
 
 
 meteo()
