@@ -27,14 +27,18 @@ async function meteo(){
 
 //Pexelskey: 563492ad6f91700001000001608e9238674748009498eea15e94bde2//
 
-chrome.runtime.onMessage.addListener(
+//chrome.runtime.onMessage.addListener(
 
 async function photo(){
-  
+  // app.use(function(req, res, next) {
+  //   res.header("Access-Control-Allow-Origin", "*");
+  //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  //   next();
+  //   });
     fetch("https://api.pexels.com/v1/search?query=weather",{
         headers: {
-          AccessControlAllowOrigin : "https://api.pexels.com/v1/search?query=weather",
-          contentType:"image/png",
+          Origin : "*", //"https://api.pexels.com/v1/search?query=weather",
+          'Content-Type':"image/jpeg",
           Authorization: "563492ad6f91700001000001608e9238674748009498eea15e94bde2",
         }
       })
@@ -42,12 +46,14 @@ async function photo(){
            return resp.json()
          })
          .then(data => {
-           const url = data.photos.url
-           document.getElementById("background-img").setAttribute("src", "https://api.pexels.com/v1/search?query=weather" + url +".png")
+           //let i = 0
+           const url = data.photos[0].src.original
+           //document.getElementById("background-img").setAttribute("src",url)
+           document.getElementById("bg").css("background-image",url)//.style.backgroundImage = 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg'
            console.log(data.photos)
          })
         }
-)
+//)
 
 
 meteo()
