@@ -48,8 +48,8 @@ async function photo(){
          .then(data => {
            //let i = 0
            const url = data.photos[0].src.original
-           //document.getElementById("background-img").setAttribute("src",url)
-           document.getElementById("bg").css("background-image",url)//.style.backgroundImage = 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg'
+           document.getElementById("background-img").setAttribute("src", url)
+           //document.getElementById("bg").css("background-image",url)//.style.backgroundImage = 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg'
            console.log(data.photos)
          })
         }
