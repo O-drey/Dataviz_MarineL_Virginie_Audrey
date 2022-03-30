@@ -29,7 +29,9 @@ async function meteo(){
           "50d" : "f5f5f5"
         }
         
+        let colorPhoto = array[icon]
         console.log(array[icon])
+        return colorPhoto
 
     }catch{
         (error => alert("Erreur : " + error))
@@ -42,7 +44,7 @@ async function meteo(){
 
 
 async function photo(){
-    fetch("https://api.pexels.com/v1/search?query=weather&color=d3d3d3",{
+    fetch("https://api.pexels.com/v1/search?query=weather&color=" + resultat , {
         headers: {
           Origin : "*", 
           'Content-Type':"image/jpeg",
@@ -55,11 +57,13 @@ async function photo(){
          .then(data => {
            const url = data.photos[1].src.landscape
            document.getElementById("background-img").setAttribute("src", url)
-           console.log(data.photos)
+           //console.log(data.photos)
          })
         }
 
 
 
-meteo()
-photo()
+let resultat = meteo()
+
+//console.log(meteo(photo()))
+photo(resultat)
