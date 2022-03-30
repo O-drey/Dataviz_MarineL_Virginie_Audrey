@@ -1,5 +1,6 @@
 //import { createClient } from 'pexels';
 //const client = createClient('563492ad6f91700001000001608e9238674748009498eea15e94bde2');
+let interval = setInterval(photo,[3600000])
 
 async function meteo(){
     try{
@@ -44,7 +45,7 @@ async function meteo(){
 
 
 async function photo(){
-    fetch("https://api.pexels.com/v1/search?query=weather&color=" + resultat , {
+    fetch("https://api.pexels.com/v1/search?query=weather&per_page=80&color=" + resultat , {
         headers: {
           Origin : "*", 
           'Content-Type':"image/jpeg",
@@ -55,15 +56,14 @@ async function photo(){
            return resp.json()
          })
          .then(data => {
-           const url = data.photos[1].src.landscape
+           var num = Math.floor(Math.random() * 81);
+           const url = data.photos[num].src.landscape
            document.getElementById("background-img").setAttribute("src", url)
-           //console.log(data.photos)
+           console.log(data.photos)
          })
         }
 
 
 
 let resultat = meteo()
-
-//console.log(meteo(photo()))
 photo(resultat)
