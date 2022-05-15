@@ -1,5 +1,7 @@
-# Projet_Collectif_Template
-
-Ce dépôt Git vous sert de base de travail pour les projets collectifs : en cliquant sur le lien fourni par l'encadrante, celui-ci sera automatiquement copié dans la dépôt que vous créerez pour ce projet.
-
-Il ne vous reste plus qu'à vous lancer sur le projet collectif, et à mettre à jour le dépôt au fil de l'eau !
+# Dataviz
+<br>
+In eight days, our trio co-developed a weather data visualization that changes the background of the interface depending on the weather and is renewed every hour.<br>
+*Languages:* HTML5, CSS3, JavaScript
+*Tools:* Figma, Git/GitHub, Visual Studio Code
+*Source API:* Pexels.com and OpenWeatherMap.org
+ *Organization:* Daily review of the steps to achieve, debugging, mob programming, clean code
